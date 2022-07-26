@@ -1,8 +1,29 @@
 <template>
-  <div class="login-container"></div>
+  <div class="login-container">
+    <el-form
+      ref="loginFrom"
+      :v-model="loginFrom"
+      :rules="loginRules"
+      class="login-form"
+      auto-complete="on"
+      label-position="left"
+    >
+      <div class="title-container">
+        <h3 class="title">用户登录</h3>
+      </div>
+    </el-form>
+  </div>
 </template>
 <script>
-export default {};
+export default {
+  name: 'loginIndex',
+  data() {
+    return {
+      loginFrom: {},
+      loginRules: {},
+    };
+  },
+};
 </script>
 <style lang="scss">
 /* 修复input 背景不协调 和光标变色 */

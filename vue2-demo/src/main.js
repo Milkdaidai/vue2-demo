@@ -7,6 +7,7 @@ import '@/styles/index.scss'; // global css
 import 'normalize.css/normalize.css'; // A modern alternative to CSS resets
 import ElementUI from 'element-ui';
 import '@/icons'; // icon
+import '@/styles/index.scss'; // global css
 Vue.config.productionTip = false;
 // set ElementUI lang to EN
 Vue.use(ElementUI);

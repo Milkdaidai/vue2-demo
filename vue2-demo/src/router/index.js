@@ -2,7 +2,8 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
-
+/*Layout */
+import Layout from '@/layout/layoutIndex.vue';
 const routes = [
   {
     path: '/login',
@@ -10,9 +11,16 @@ const routes = [
     component: () => import('@/views/login/loginIndex.vue'),
   },
   {
-    path: '/dashboard',
-    name: 'dashboaed',
-    component: () => import('@/views/dashboard/dashboardIndex.vue'),
+    path: '/',
+    component: Layout,
+    redirect: '/dashboard',
+    children: [
+      {
+        path: '/dashboard',
+        name: 'dashboard',
+        component: () => import('@/views/dashboard/dashboardIndex.vue'),
+      },
+    ],
   },
   { path: '*', redirect: '/login', hidden: true },
 ];

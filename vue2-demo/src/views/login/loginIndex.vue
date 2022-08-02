@@ -10,7 +10,11 @@
     >
       <div class="title-container">
         <h3 class="title">用户登录</h3>
+        <span class="svg-container">
+          <svg-icon icon-class="changeLanguage" />
+        </span>
       </div>
+
       <el-form-item prop="username">
         <span class="svg-container">
           <svg-icon icon-class="user" />
@@ -52,7 +56,9 @@
   </div>
 </template>
 <script>
+import svgIcon from '@/components/SvgIcon/svgIcon.vue';
 export default {
+  components: { svgIcon },
   name: 'loginIndex',
   data() {
     return {

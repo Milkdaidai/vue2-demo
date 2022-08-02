@@ -9,12 +9,11 @@
       label-position="left"
     >
       <div class="title-container">
-        <h3 class="title">用户登录</h3>
-        <span class="svg-container">
-          <svg-icon icon-class="changeLanguage" />
+        <h3 class="title">{{ $t('message.login') }}</h3>
+        <span class="svg-container" @click="handleSetLanguage()">
+          <svg-icon :icon-class="languageType === 'zh' ? 'zh' : 'cn'" />
         </span>
       </div>
-
       <el-form-item prop="username">
         <span class="svg-container">
           <svg-icon icon-class="user" />
@@ -22,7 +21,7 @@
         <el-input
           ref="username"
           v-model="loginForm.userName"
-          placeholder="userName"
+          :placeholder="$t('message.Username')"
           name="userName"
           type="text"
           tabindex="1"
@@ -39,7 +38,7 @@
             ref="password"
             v-model="loginForm.password"
             :type="passwordType"
-            placeholder="Password"
+            :placeholder="$t('message.Password')"
             name="password"
             tabindex="2"
             autocomplete="off"
@@ -52,11 +51,15 @@
           </span>
         </el-form-item>
       </el-tooltip>
+      <el-button :loading="loading" type="primary" style="width: 100%; margin-bottom: 30px" @click="enterLogin">
+        {{ $t('message.login') }}
+      </el-button>
     </el-form>
   </div>
 </template>
 <script>
 import svgIcon from '@/components/SvgIcon/svgIcon.vue';
+// import i18n from '@/common/lang'
 export default {
   components: { svgIcon },
   name: 'loginIndex',
@@ -67,11 +70,22 @@ export default {
         passWord: '',
       },
       loginRules: {},
+      loading: false,
       capsTooltip: false,
       passwordType: 'password',
+      languageType: 'zh',
     };
   },
   methods: {
+    handleSetLanguage() {
+      if (this.$i18n.locale === 'zh') {
+        this.$i18n.locale = 'cn';
+        this.languageType = 'cn';
+      } else {
+        this.$i18n.locale = 'zh';
+        this.languageType = 'zh';
+      }
+    },
     showPwd() {
       if (this.passwordType === 'password') {
         this.passwordType = '';
@@ -81,6 +95,9 @@ export default {
       this.$nextTick(() => {
         this.$refs.password.focus();
       });
+    },
+    enterLogin() {
+      this.$router.push({ path: '/dashboard' });
     },
   },
 };

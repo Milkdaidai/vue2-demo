@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { getLanguage } from '@/lang/index';
+import { getLanguage } from '@/common/lang';
 import Cookies from 'js-cookie';
 
 Vue.use(Vuex);

@@ -9,19 +9,13 @@ import '@/styles/index.scss'; // global css
 import '@/icons'; // icon
 import '@/styles/index.scss'; // global css
 import VueI18n from 'vue-i18n';
+import i18n from './common/lang';
 Vue.config.productionTip = false;
-//i18n设置
 Vue.use(VueI18n);
-/*----------使用VueI18n-----------*/
-const i18n = new VueI18n({
-  locale: 'zh',
-  messages: {
-    // zh: require('./common/lang/zh'),
-    // en: require('./common/lang/en'),
-  },
-});
 // set ElementUI lang to EN
-Vue.use(ElementUI);
+Vue.use(ElementUI, {
+  i18n: (key, value) => i18n.t(key, value),
+});
 new Vue({
   router,
   store,

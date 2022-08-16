@@ -19,6 +19,7 @@ const routes = [
         path: '/dashboard',
         name: 'dashboard',
         component: () => import('@/views/dashboard/dashboardIndex.vue'),
+        meta: { title: 'Dashboard', icon: 'dashboard' },
       },
     ],
   },

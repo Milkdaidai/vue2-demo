@@ -1,15 +1,13 @@
 <template>
   <div>
-    <navbar />
+    <hamburger />
   </div>
 </template>
 <script>
-import { Navbar } from './components';
+import Hamburger from '@/components/Hamburger/hamburgerIndex.vue';
 export default {
-  name: 'Layout',
   components: {
-    Navbar,
+    Hamburger,
   },
 };
 </script>
-<style></style>

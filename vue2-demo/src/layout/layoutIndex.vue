@@ -1,19 +1,24 @@
 <template>
   <div class="layout-main">
-    <div class="menu-div"></div>
-    <navbar />
+    <sidebar class="sidebar-container" />
+    <div class="main-container">
+      <div class="">
+        <navbar />
+      </div>
+    </div>
   </div>
 </template>
 <script>
-import { Navbar } from './components';
+import { Navbar, Sidebar } from './components';
 export default {
   name: 'Layout',
   components: {
     Navbar,
+    Sidebar,
   },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .layout-main {
   width: 100%;
   height: 100%;
@@ -23,6 +28,13 @@ export default {
     float: left;
     border-right: 1px solid rgba(0, 21, 41, 0.08);
   }
+}
+.fixed-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9;
+  transition: width 0.28s;
 }
 </style>
 >

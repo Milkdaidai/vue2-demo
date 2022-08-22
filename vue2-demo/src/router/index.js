@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 /*Layout */
-import Layout from '@/layout/layoutIndex.vue';
+import Layout from '@/layout/Index.vue';
 const routes = [
   {
     path: '/login',

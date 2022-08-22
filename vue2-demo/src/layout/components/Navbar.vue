@@ -1,6 +1,6 @@
 <template>
   <div class="navbar">
-    <hamburger class="hamburger-container" />
+    <hamburger :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
     <div class="right-menu">
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
@@ -26,10 +26,19 @@
   </div>
 </template>
 <script>
-import Hamburger from '@/components/Hamburger/hamburgerIndex.vue';
+import Hamburger from '@/components/Hamburger/Index.vue';
+import { mapGetters } from 'vuex';
 export default {
   components: {
     Hamburger,
+  },
+  computed: {
+    ...mapGetters(['sidebar']),
+  },
+  methods: {
+    toggleSideBar() {
+      this.$store.dispatch('app/toggleSideBar');
+    },
   },
 };
 </script>

@@ -5,16 +5,32 @@
       <div class="">
         <navbar />
       </div>
+      <div>
+        <item :isRed="isRed"></item>
+        <el-button @click="changeColor()"></el-button>
+      </div>
     </div>
   </div>
 </template>
 <script>
 import { Navbar, Sidebar } from './components';
+import Item from './components/Sidebar/item.vue';
 export default {
   name: 'Layout',
   components: {
     Navbar,
     Sidebar,
+    Item,
+  },
+  data() {
+    return {
+      isRed: false,
+    };
+  },
+  methods: {
+    changeColor() {
+      this.isRed = !this.isRed;
+    },
   },
 };
 </script>
@@ -37,4 +53,3 @@ export default {
   transition: width 0.28s;
 }
 </style>
->

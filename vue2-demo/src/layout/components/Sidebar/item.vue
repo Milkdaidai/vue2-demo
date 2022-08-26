@@ -1,11 +1,14 @@
 <script>
 export default {
-  data() {
-    return {
-      isRed: true,
-    };
+  props: {
+    isRed: {
+      type: Boolean,
+      default: false,
+    },
   },
-
+  mounted() {
+    console.log('this.isRed', this.isRed);
+  },
   render(h) {
     return h(
       'div',
@@ -19,4 +22,8 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.is-red {
+  color: red;
+}
+</style>
